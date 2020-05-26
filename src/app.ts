@@ -112,3 +112,10 @@ userInputElement.value = "hi There"
 interface ErrorContainer {  
     [prop: string] : string;
 }
+
+const fetchedUserData = { 
+    id: 'u1', 
+    name : "Max" , 
+    job : {title : "CEO" , description: "MY Company"}
+}
+console.log(fetchedUserData?.job?.title)

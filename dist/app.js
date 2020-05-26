@@ -1,4 +1,5 @@
 "use strict";
+var _a;
 const e1 = {
     name: "Max",
     privilage: ['create-server'],
@@ -57,3 +58,9 @@ function moveAnimal(animal) {
 moveAnimal({ type: "bird", flyingSpeed: 10 });
 const userInputElement = document.getElementById('user-input');
 userInputElement.value = "hi There";
+const fetchedUserData = {
+    id: 'u1',
+    name: "Max",
+    job: { title: "CEO", description: "MY Company" }
+};
+console.log((_a = fetchedUserData === null || fetchedUserData === void 0 ? void 0 : fetchedUserData.job) === null || _a === void 0 ? void 0 : _a.title);
