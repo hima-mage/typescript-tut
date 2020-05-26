@@ -38,12 +38,12 @@ console.log(extractAndConvert({name: 'ibrahim'}, 'name'));
 
 
 class DataStorage<T > { 
-    private data: T[]= []
-    addItem(item: T) { 
+    private data: (string | number | boolean)[]= []
+    addItem(item: string | number | boolean) { 
         this.data.push(item)
     }
 
-    removeItem(item: T) { 
+    removeItem(item: string | number | boolean) { 
         this.data.splice(this.data.indexOf(item))
     }
 
