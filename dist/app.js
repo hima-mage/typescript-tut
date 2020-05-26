@@ -15,3 +15,7 @@ function countAndDescription(element) {
     return [element, descriptiontext];
 }
 console.log(countAndDescription("hi there"));
+function extractAndConvert(obj, key) {
+    return obj[key];
+}
+console.log(extractAndConvert({ name: 'ibrahim' }, 'name'));
