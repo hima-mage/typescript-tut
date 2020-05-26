@@ -42,3 +42,6 @@ function useVehicle(vehicle) {
     }
 }
 useVehicle(v2);
+function moveAnimal(animal) {
+    console.log("moving with Speed", animal.flyingSpeed);
+}
