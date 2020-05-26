@@ -19,3 +19,22 @@ function extractAndConvert(obj, key) {
     return obj[key];
 }
 console.log(extractAndConvert({ name: 'ibrahim' }, 'name'));
+class DataStorage {
+    constructor() {
+        this.data = [];
+    }
+    addItem(item) {
+        this.data.push(item);
+    }
+    removeItem(item) {
+        this.data.splice(this.data.indexOf(item));
+    }
+    getItems() {
+        return [...this.data];
+    }
+}
+const textStorage = new DataStorage();
+textStorage.addItem('Mannu');
+textStorage.addItem('Max');
+textStorage.removeItem('Max');
+console.log(textStorage.getItems());
