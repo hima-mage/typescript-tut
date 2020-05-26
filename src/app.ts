@@ -119,3 +119,8 @@ const fetchedUserData = {
     job : {title : "CEO" , description: "MY Company"}
 }
 console.log(fetchedUserData?.job?.title)
+
+
+const userInput = '' 
+const storeData  = userInput ?? 'Default'
+console.log(storeData)
