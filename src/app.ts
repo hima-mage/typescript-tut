@@ -6,8 +6,6 @@ class Department {
     }
 }
 
-
-
 const accounting =  new Department('Accounting');
 
 console.log(accounting)
