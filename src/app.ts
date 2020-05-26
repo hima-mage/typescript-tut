@@ -87,5 +87,21 @@ interface Horse {
 type Animal = Bird | Horse 
 
 function moveAnimal(animal : Animal) { 
-    console.log("moving with Speed" , animal.flyingSpeed)
+    let speed;
+    switch (animal.type) { 
+        case 'bird' :
+            speed = animal.flyingSpeed;
+            break;
+        case 'horse': 
+            speed = animal.runningSpeed;
+            break;
+    }
+
+    console.log("moving with Speed" , speed)
 }
+
+moveAnimal({type: "bird", flyingSpeed: 10});
+
+const userInputElement = <HTMLInputElement>document.getElementById('user-input')!  
+
+userInputElement.value = "hi There"
