@@ -1,6 +1,6 @@
 class Department { 
     name: string ;
-    employees : string[] = [];
+    private employees : string[] = [];
 
     constructor(n: string) {
         this.name = n;
@@ -20,7 +20,7 @@ class Department {
 const accounting =  new Department('Accounting');
 accounting.addEmployee("Max")
 accounting.addEmployee("Manu")
-
+accounting.employees[2] = "Anna";
 
 accounting.describe()
 accounting.printEmployeeInformation()
