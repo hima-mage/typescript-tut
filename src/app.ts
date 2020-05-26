@@ -30,3 +30,45 @@ function add(a: Combinable , b : Combinable) {
     }
     return a + b ;
 }
+
+type UnknownEmployee = Employee | Admin
+
+function printEmployeeInformation(emp : UnknownEmployee) {
+    console.log('Name' , emp.name); 
+    if ('privilage' in emp){
+        console.log('Privilage' , emp.privilage);
+    } 
+    if ('startDate' in emp){
+        console.log('startDate' , emp.startDate);
+    } 
+}
+
+printEmployeeInformation(e1)
+
+class Car { 
+    drive() { 
+        console.log('drive car')
+    }
+}
+class Truck { 
+    drive() { 
+        console.log('drive Truck')
+    }
+    loadCargo() { 
+        console.log('loadCargo')
+    }
+}
+
+type Vehicle = Car | Truck;
+const v1 = new Car( );
+const v2 = new Truck();
+
+function useVehicle(vehicle : Vehicle) {
+    vehicle.drive()
+    if (vehicle instanceof Truck){
+         vehicle.loadCargo() 
+    } 
+    
+}
+
+useVehicle(v2)
