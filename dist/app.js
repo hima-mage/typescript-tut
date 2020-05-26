@@ -1,7 +1,6 @@
 "use strict";
-const names = ['Max', 'Manual'];
-const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-        resolve(10);
-    }, 2000);
-});
+function merge(objA, objB) {
+    return Object.assign(objA, objB);
+}
+const mergedOb = merge({ name: "Max" }, { age: 30 });
+mergedOb.name;
