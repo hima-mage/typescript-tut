@@ -6,9 +6,9 @@
 //     }, 2000)
 // })
 
-function merge<T , U>(objA: T , objB: U) { 
+function merge<T  extends object, U  extends object>(objA: T , objB: U) { 
     return Object.assign(objA, objB)
 }
 
-const mergedOb = merge({name: "Max"} , {age : 30})
-mergedOb.name;
+const mergedOb = merge({name: "Max" , age : 30} , {hobbies : ['none']})
+console.log(mergedOb)
