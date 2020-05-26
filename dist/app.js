@@ -1,23 +1,12 @@
 "use strict";
-class Department {
-    constructor(name) {
-        this.name = name;
-        this.employees = [];
+const e1 = {
+    name: "Max",
+    privilage: ['create-server'],
+    startDate: new Date()
+};
+function add(a, b) {
+    if (typeof a === 'string' || typeof b === 'string') {
+        return a.toString() + b.toString();
     }
-    describe() {
-        console.log("department", this.name);
-    }
-    addEmployee(employee) {
-        this.employees.push(employee);
-    }
-    printEmployeeInformation() {
-        console.log(this.employees.length);
-        console.log(this.employees);
-    }
+    return a + b;
 }
-const accounting = new Department('Accounting');
-accounting.addEmployee("Max");
-accounting.addEmployee("Manu");
-accounting.employees[2] = "Anna";
-accounting.describe();
-accounting.printEmployeeInformation();

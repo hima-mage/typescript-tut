@@ -1,27 +1,32 @@
-class Department { 
-    // private readonly id: number ;
-    private employees : string[] = [];
+type Admin = { 
+    name : string;
+    privilage : string[];
+};
 
-    constructor(public name: string) {
-         
-    }
-    describe(this:Department ) { 
-        console.log("department" , this.name)
-    }
-    addEmployee(employee: string){
-        this.employees.push(employee)
-    }
-    printEmployeeInformation(){
-        console.log(this.employees.length)
-        console.log(this.employees)
-    }
+type Employee = { 
+    name : string;
+    startDate : Date;
+};
+
+
+// interface ElevatedEmployee extends Admin , Employee ;
+//  intersection , both type 
+type ElevatedEmployee = Admin & Employee;
+
+const e1: ElevatedEmployee = { 
+    name : "Max", 
+    privilage: ['create-server'], 
+    startDate: new Date()
 }
 
-const accounting =  new Department('Accounting');
-accounting.addEmployee("Max")
-accounting.addEmployee("Manu")
-accounting.employees[2] = "Anna";
+type Combinable = string | number; 
+type Numeric = number | boolean;
 
-accounting.describe()
-accounting.printEmployeeInformation()
- 
+type Universal = Combinable & Numeric
+
+function add(a: Combinable , b : Combinable) { 
+    if (typeof a === 'string' || typeof b === 'string') { 
+        return a.toString() + b.toString();
+    }
+    return a + b ;
+}
