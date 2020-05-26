@@ -1,9 +1,9 @@
 class Department { 
-    name: string ;
+    // private readonly id: number ;
     private employees : string[] = [];
 
-    constructor(private n: string) {
-        this.name = n;
+    constructor(public name: string) {
+         
     }
     describe(this:Department ) { 
         console.log("department" , this.name)
