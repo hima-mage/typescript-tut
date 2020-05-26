@@ -38,3 +38,10 @@ textStorage.addItem('Mannu');
 textStorage.addItem('Max');
 textStorage.removeItem('Max');
 console.log(textStorage.getItems());
+function createCourseGoal(title, description, date) {
+    let courseGoal = {};
+    courseGoal.title = title;
+    courseGoal.description = description;
+    courseGoal.completeUntil = date;
+    return courseGoal;
+}
