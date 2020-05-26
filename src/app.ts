@@ -2,7 +2,7 @@ class Department {
     name: string ;
     private employees : string[] = [];
 
-    constructor(n: string) {
+    constructor(private n: string) {
         this.name = n;
     }
     describe(this:Department ) { 
