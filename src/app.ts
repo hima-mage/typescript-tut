@@ -101,9 +101,9 @@ class ProjectInput {
       max: 5
     }
     if (
-      validate(titleValidatable),
-      validate(descriptionValidatable),
-      validate(peopleValidatable)
+      !validate(titleValidatable) ||
+      !validate(descriptionValidatable)||
+      !validate(peopleValidatable)
     ) {
       alert('invalid input , please try')
       return;
