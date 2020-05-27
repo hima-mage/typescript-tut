@@ -1,3 +1,14 @@
+// Validation 
+interface Validatable {
+  value: string | number; 
+  required : boolean; 
+  minLength: number ;
+  maxLength : number;
+  min: number ; 
+  max: number;
+}
+
+
 // autobind decorator
 function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
   const originalMethod = descriptor.value;
