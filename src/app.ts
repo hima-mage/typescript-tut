@@ -42,3 +42,7 @@ class ProjectState {
         }
     }
 } 
+
+const projectState = ProjectState.getInstance();
+
+// Validation
