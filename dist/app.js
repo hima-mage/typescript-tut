@@ -22,6 +22,7 @@ function validate(validatableInput) {
     if (validatableInput.max != null && typeof validatableInput.value === 'number') {
         isValid = isValid && validatableInput.value < validatableInput.max;
     }
+    return isValid;
 }
 function autobind(_, _2, descriptor) {
     const originalMethod = descriptor.value;
@@ -52,9 +53,9 @@ let ProjectInput = (() => {
             const enteredTitle = this.titleInputElement.value;
             const enteredDescription = this.descriptionInputElement.value;
             const enteredPeople = this.peopleInputElement.value;
-            if (enteredTitle.trim().length === 0 ||
-                enteredDescription.trim().length === 0 ||
-                enteredPeople.trim().length === 0) {
+            if (validate({ value: enteredTitle, required: true, minLength: 5 }),
+                validate({ value: enteredDescription, required: true, minLength: 5 }),
+                validate({ value: enteredPeople, required: true, minLength: 5 })) {
                 alert('invalid input , please try');
                 return;
             }
