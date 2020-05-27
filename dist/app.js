@@ -40,6 +40,18 @@ function Log(target, peopertyName) {
     console.log('Property decorator');
     console.log(target, peopertyName);
 }
+function Log2(target, name, descriptor) {
+    console.log('Accessor decorator');
+    console.log(target);
+    console.log(name);
+    console.log(descriptor);
+}
+function Log3(target, name, descriptor) {
+    console.log('Method decorator');
+    console.log(target);
+    console.log(name);
+    console.log(descriptor);
+}
 let Product = (() => {
     class Product {
         constructor(t, p) {
@@ -61,5 +73,11 @@ let Product = (() => {
     __decorate([
         Log
     ], Product.prototype, "title", void 0);
+    __decorate([
+        Log2
+    ], Product.prototype, "price", null);
+    __decorate([
+        Log3
+    ], Product.prototype, "getPriceWithTax", null);
     return Product;
 })();
