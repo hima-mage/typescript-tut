@@ -47,7 +47,7 @@ class ProjectInput {
   }
 
   // for input gathering and validate
-  private gatherUserInput(): [string, string, number] {
+  private gatherUserInput(): [string, string, number] | undefined {
     const enteredTitle = this.titleInputElement.value;
     const enteredDescription = this.descriptionInputElement.value;
     const enteredPeople = this.peopleInputElement.value;
@@ -57,13 +57,22 @@ class ProjectInput {
       enteredDescription.trim().length === 0 ||
       enteredPeople.trim().length === 0
     ) {
+      alert('invalid input , please try')
+      return;
+    } else { 
+      return  [enteredTitle , enteredDescription , +enteredPeople];
     }
   }
   // there prob with this key word into submithander - it'sn refer to the element submited - so we have to bind it
   @autobind
   private submitHandler(event: Event) {
     event.preventDefault();
-    console.log(this.titleInputElement.value);
+    const userInput = this.gatherUserInput();
+    if (Array.isArray(userInput))  { 
+      const [title, desc , people] = userInput;
+      console.log(title, desc, people)
+    }
+    
   }
 
   private configure() {

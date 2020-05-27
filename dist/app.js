@@ -37,11 +37,20 @@ let ProjectInput = (() => {
             if (enteredTitle.trim().length === 0 ||
                 enteredDescription.trim().length === 0 ||
                 enteredPeople.trim().length === 0) {
+                alert('invalid input , please try');
+                return;
+            }
+            else {
+                return [enteredTitle, enteredDescription, +enteredPeople];
             }
         }
         submitHandler(event) {
             event.preventDefault();
-            console.log(this.titleInputElement.value);
+            const userInput = this.gatherUserInput();
+            if (Array.isArray(userInput)) {
+                const [title, desc, people] = userInput;
+                console.log(title, desc, people);
+            }
         }
         configure() {
             this.element.addEventListener("submit", this.submitHandler);
