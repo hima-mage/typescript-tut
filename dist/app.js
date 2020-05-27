@@ -1,39 +1,14 @@
 "use strict";
-var ProjectStatus;
-(function (ProjectStatus) {
-    ProjectStatus[ProjectStatus["Active"] = 0] = "Active";
-    ProjectStatus[ProjectStatus["Finished"] = 1] = "Finished";
-})(ProjectStatus || (ProjectStatus = {}));
-class Project {
-    constructor(id, title, description, people, status) {
-        this.id = id;
-        this.title = title;
-        this.description = description;
-        this.people = people;
-        this.status = status;
-    }
-}
-class ProjectState {
+class ProjectInput {
     constructor() {
-        this.listeners = [];
-        this.projects = [];
+        this.templateElement = document.getElementById('project-input');
+        this.hostElement = document.getElementById('app');
+        const importedNode = document.importNode(this.templateElement.content, true);
+        this.element = importedNode.firstElementChild;
+        this.attach();
     }
-    static getInstance() {
-        if (this.instance) {
-            return this.instance;
-        }
-        this.instance = new ProjectState();
-        return this.instance;
-    }
-    addListener(listenerFn) {
-        this.listeners.push(listenerFn);
-    }
-    addProject(title, description, numOfPeople) {
-        const newProject = new Project(Math.random().toString(), title, description, numOfPeople, ProjectStatus.Active);
-        this.projects.push(newProject);
-        for (const listenerFn of this.listeners) {
-            listenerFn(this.projects.slice());
-        }
+    attach() {
+        this.hostElement.insertAdjacentElement('afterbegin', this.element);
     }
 }
-const projectState = ProjectState.getInstance();
+const prjinput = new ProjectInput();
