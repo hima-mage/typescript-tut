@@ -19,7 +19,7 @@ class ProjectState {
 
     static getInstance() { 
         if(this.instance) {
-            return this.instance
+            return this.instance 
         }
         this.instance = new ProjectState() ;
         return this.instance
@@ -29,12 +29,13 @@ class ProjectState {
         this.listeners.push(listenerFn)
     }
     addProject(title: string , description : string , numOfPeople : number) { 
-        const newProject =  { 
-            id: Math.random().toString() , 
-            title : title , 
-            description: description , 
-            people: numOfPeople
-        };
+        const newProject =  new Project(
+            Math.random().toString(), 
+            title,
+            description , 
+            numOfPeople  , 
+            ProjectStatus.Active
+        )
         this.projects.push(newProject); 
         for (const listenerFn of this.listeners) { 
             listenerFn(this.projects.slice());
