@@ -18,12 +18,27 @@ class ProjectInput {
         this.descriptionInputElement = this.element.querySelector('#description') as HTMLInputElement
         this.peopleInputElement = this.element.querySelector('#people') as HTMLInputElement
 
+
+        this.configure()
         this.attach() // this will insert the form into the app-div element
+        
 
     }
+    // there prob with this key word into submithander - it'sn refer to the element submited - so we have to bind it
+    private submitHandler(event : Event) { 
+        event.preventDefault();
+        console.log(this.titleInputElement.value)
+    }
+
+
+    private configure() { 
+        this.element.addEventListener('submit' , this.submitHandler.bind(this))
+    }
+
     private attach() { 
         this.hostElement.insertAdjacentElement('afterbegin', this.element)
     }
+    
 }
 
 const prjinput = new ProjectInput()
