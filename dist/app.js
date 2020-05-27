@@ -44,6 +44,11 @@ let ProjectInput = (() => {
                 return [enteredTitle, enteredDescription, +enteredPeople];
             }
         }
+        clearInputs() {
+            this.titleInputElement.value = '';
+            this.descriptionInputElement.value = '';
+            this.peopleInputElement.value = '';
+        }
         submitHandler(event) {
             event.preventDefault();
             const userInput = this.gatherUserInput();

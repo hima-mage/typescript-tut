@@ -63,6 +63,11 @@ class ProjectInput {
       return  [enteredTitle , enteredDescription , +enteredPeople];
     }
   }
+  private clearInputs() {
+    this.titleInputElement.value = ''\
+    this.descriptionInputElement.value = ''
+    this.peopleInputElement.value = ''
+  }
   // there prob with this key word into submithander - it'sn refer to the element submited - so we have to bind it
   @autobind
   private submitHandler(event: Event) {
