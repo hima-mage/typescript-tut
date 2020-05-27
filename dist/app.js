@@ -11,16 +11,16 @@ function validate(validatableInput) {
         isValid = isValid && validatableInput.value.toString().trim().length !== 0;
     }
     if (validatableInput.minLength != null && typeof validatableInput.value === 'string') {
-        isValid = isValid && validatableInput.value.length > validatableInput.minLength;
+        isValid = isValid && validatableInput.value.length >= validatableInput.minLength;
     }
     if (validatableInput.maxLength != null && typeof validatableInput.value === 'string') {
-        isValid = isValid && validatableInput.value.length < validatableInput.maxLength;
+        isValid = isValid && validatableInput.value.length <= validatableInput.maxLength;
     }
     if (validatableInput.min != null && typeof validatableInput.value === 'number') {
-        isValid = isValid && validatableInput.value > validatableInput.min;
+        isValid = isValid && validatableInput.value >= validatableInput.min;
     }
     if (validatableInput.max != null && typeof validatableInput.value === 'number') {
-        isValid = isValid && validatableInput.value < validatableInput.max;
+        isValid = isValid && validatableInput.value <= validatableInput.max;
     }
     return isValid;
 }
@@ -53,9 +53,24 @@ let ProjectInput = (() => {
             const enteredTitle = this.titleInputElement.value;
             const enteredDescription = this.descriptionInputElement.value;
             const enteredPeople = this.peopleInputElement.value;
-            if (validate({ value: enteredTitle, required: true, minLength: 5 }),
-                validate({ value: enteredDescription, required: true, minLength: 5 }),
-                validate({ value: enteredPeople, required: true, minLength: 5 })) {
+            const titleValidatable = {
+                value: enteredTitle,
+                required: true
+            };
+            const descriptionValidatable = {
+                value: enteredDescription,
+                required: true,
+                minLength: 5
+            };
+            const peopleValidatable = {
+                value: +enteredPeople,
+                required: true,
+                min: 1,
+                max: 5
+            };
+            if (validate(titleValidatable),
+                validate(descriptionValidatable),
+                validate(peopleValidatable)) {
                 alert('invalid input , please try');
                 return;
             }
