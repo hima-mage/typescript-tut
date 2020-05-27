@@ -29,6 +29,7 @@ let Person = (() => {
         }
     };
     Person = __decorate([
+        Logger('loggin'),
         WithTemplate('<h1>My Person Object</h1>', 'app')
     ], Person);
     return Person;

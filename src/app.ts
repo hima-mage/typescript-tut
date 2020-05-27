@@ -6,6 +6,7 @@ function Logger(logString : string) {
 }
 
 
+
 function WithTemplate(template : string , hookId : string) { 
     return function(constructor : any)  { 
         const hookEl = document.getElementById(hookId)
@@ -16,6 +17,7 @@ function WithTemplate(template : string , hookId : string) {
         }
     }
 }
+@Logger('loggin')
 @WithTemplate('<h1>My Person Object</h1>' , 'app')
 
 class Person {
