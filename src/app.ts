@@ -46,3 +46,11 @@ class ProjectState {
 const projectState = ProjectState.getInstance();
 
 // Validation
+interface Validation { 
+    value: string | number ; 
+    required?: boolean;
+    minLength?: number ; 
+    maxLength?: number ; 
+    min?: number ; 
+    max?: number ; 
+}
