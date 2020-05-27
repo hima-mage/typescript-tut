@@ -1,21 +1,15 @@
 // autobind decorator
-function autobind(
-  _: any,
-  _2: string,
-  descriptor: PropertyDescriptor
-) {
-    const originalMethod = descriptor.value
-    const adjDescription : PropertyDescriptor = {
-        configurable: true,
-        get() {
-            const boundFn = originalMethod.bind(this)
-            return boundFn
-        }
-    }
-
-    return adjDescription
+function autobind(_: any, _2: string, descriptor: PropertyDescriptor) {
+  const originalMethod = descriptor.value;
+  const adjDescription: PropertyDescriptor = {
+    configurable: true,
+    get() {
+      const boundFn = originalMethod.bind(this);
+      return boundFn;
+    },
+  };
+  return adjDescription;
 }
-
 // ProjectInput Class
 class ProjectInput {
   public templateElement: HTMLTemplateElement; // template element to get project input
@@ -50,6 +44,20 @@ class ProjectInput {
 
     this.configure();
     this.attach(); // this will insert the form into the app-div element
+  }
+
+  // for input gathering and validate
+  private gatherUserInput(): [string, string, number] {
+    const enteredTitle = this.titleInputElement.value;
+    const enteredDescription = this.descriptionInputElement.value;
+    const enteredPeople = this.peopleInputElement.value;
+
+    if (
+      enteredTitle.trim().length === 0 ||
+      enteredDescription.trim().length === 0 ||
+      enteredPeople.trim().length === 0
+    ) {
+    }
   }
   // there prob with this key word into submithander - it'sn refer to the element submited - so we have to bind it
   @autobind

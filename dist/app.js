@@ -12,7 +12,7 @@ function autobind(_, _2, descriptor) {
         get() {
             const boundFn = originalMethod.bind(this);
             return boundFn;
-        }
+        },
     };
     return adjDescription;
 }
@@ -29,6 +29,15 @@ let ProjectInput = (() => {
             this.peopleInputElement = this.element.querySelector("#people");
             this.configure();
             this.attach();
+        }
+        gatherUserInput() {
+            const enteredTitle = this.titleInputElement.value;
+            const enteredDescription = this.descriptionInputElement.value;
+            const enteredPeople = this.peopleInputElement.value;
+            if (enteredTitle.trim().length === 0 ||
+                enteredDescription.trim().length === 0 ||
+                enteredPeople.trim().length === 0) {
+            }
         }
         submitHandler(event) {
             event.preventDefault();
