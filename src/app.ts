@@ -30,3 +30,31 @@ class Person {
 const pers = new Person()
 
 console.log(pers)
+
+// ----------
+
+
+function Log(target: any , peopertyName : string){
+    console.log('Property decorator')
+    console.log(target, peopertyName)
+}
+class Product { 
+    @Log
+    title : string; 
+    private _price : number;
+
+    set price(val : number){ 
+        if (val > 0){
+            this._price = val
+        } else { 
+            throw new Error('Invalid Price - should be positice')
+        }
+    }
+    constructor(t: string, p: number) {
+        this.title = t;
+        this._price = p;
+    }
+    getPriceWithTax(tax: number) {
+        return this._price * (1 + tax);
+    }
+}

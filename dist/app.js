@@ -36,3 +36,30 @@ let Person = (() => {
 })();
 const pers = new Person();
 console.log(pers);
+function Log(target, peopertyName) {
+    console.log('Property decorator');
+    console.log(target, peopertyName);
+}
+let Product = (() => {
+    class Product {
+        constructor(t, p) {
+            this.title = t;
+            this._price = p;
+        }
+        set price(val) {
+            if (val > 0) {
+                this._price = val;
+            }
+            else {
+                throw new Error('Invalid Price - should be positice');
+            }
+        }
+        getPriceWithTax(tax) {
+            return this._price * (1 + tax);
+        }
+    }
+    __decorate([
+        Log
+    ], Product.prototype, "title", void 0);
+    return Product;
+})();
